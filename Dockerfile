@@ -144,6 +144,15 @@ RUN git clone "${brubeck_repo}" /usr/local/src/brubeck \
  && chmod +x brubeck && mkdir -p /opt/graphite/bin/ \
  && cp -fv brubeck /opt/graphite/bin/brubeck
 
+# install circonus irondb-graphite plug-in
+# https://docs.circonus.com/irondb/tools/irondb-graphite/
+ARG irondbgraphite_repo=http://github.com/circonus-labs/graphite-irondb
+RUN . /opt/graphite/bin/activate \
+ && git clone ${irondbgraphite_repo} /usr/local/src/irondbgraphite \
+ && cd /usr/local/src/irondbgraphite \
+ && python3 ./setup.py install --pure_python
+
+
 COPY conf/opt/graphite/conf/                             /opt/defaultconf/graphite/
 COPY conf/opt/graphite/webapp/graphite/local_settings.py /opt/defaultconf/graphite/local_settings.py
 

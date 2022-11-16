@@ -144,6 +144,34 @@ UTF8_METRICS = os.environ.get('GRAPHITE_UTF8_METRICS', 'false').lower() in ['1',
 #    'graphite.finders.ceres.CeresFinder',
 # )
 
+# - start changes by DCC for graphihte-irondb ###################################
+
+STORAGE_FINDERS = (
+    'irondb.IRONdbFinder',
+)
+
+TAGDB = 'irondb.IRONdbTagFetcher'
+
+IRONDB_URLS = (
+    'https://api.circonus.com/irondb/graphite',
+)
+
+# Optional.  You need CIRCONUS_TOKEN if you are using this with the
+# Circonus Saas or Inside products.  See below.
+# If you are not using Circonus SaaS or Inside you can omit this setting
+# CIRCONUS_TOKEN = '0005cc1f-5b27-4b60-937b-7c73a25dfef7'
+CIRCONUS_TOKEN = '4dfb9001-8145-4011-9e35-ce74091a3182'
+
+IRONDB_BATCH_SIZE = 250
+IRONDB_USE_DATABASE_ROLLUPS = True
+IRONDB_USE_ACTIVITY_TRACKING = True
+IRONDB_TIMEOUT_MS = 10000
+IRONDB_CONNECTION_TIMEOUT_MS = 3005
+IRONDB_MAX_RETRIES = 2
+IRONDB_QUERY_LOG = False
+
+# - end changes by DCC for graphihte-irondb ###################################
+
 #####################################
 # Email Configuration #
 #####################################

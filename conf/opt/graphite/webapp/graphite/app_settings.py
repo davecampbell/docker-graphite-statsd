@@ -83,7 +83,6 @@ INSTALLED_APPS = (
   'django.contrib.contenttypes',
   'django.contrib.staticfiles',
   'tagging',
-  'irondb',
 )
 
 AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']

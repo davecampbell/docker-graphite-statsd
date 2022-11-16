@@ -150,7 +150,7 @@ ARG irondbgraphite_repo=https://github.com/circonus-labs/graphite-irondb
 RUN . /opt/graphite/bin/activate \
  && git clone ${irondbgraphite_repo} /usr/local/src/irondbgraphite \
  && cd /usr/local/src/irondbgraphite \
- && python3 ./setup.py install --pure-python
+ && python3 ./setup.py install --pure-python $python_extra_flags
 
 
 COPY conf/opt/graphite/conf/                             /opt/defaultconf/graphite/

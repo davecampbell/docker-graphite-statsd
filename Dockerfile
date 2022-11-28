@@ -150,6 +150,7 @@ ARG irondbgraphite_repo=https://github.com/deniszh/graphite-irondb
 RUN . /opt/graphite/bin/activate \
 && git clone --branch python3-upd ${irondbgraphite_repo} /usr/local/src/irondbgraphite \
 && cd /usr/local/src/irondbgraphite \
+&& pip install future requests flatbuffers \
 && python3 ./setup.py install --pure-python $python_extra_flags
 
 COPY conf/opt/graphite/conf/                             /opt/defaultconf/graphite/
